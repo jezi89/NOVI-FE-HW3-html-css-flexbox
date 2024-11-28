@@ -1,1 +1,90 @@
 /*Schrijf hier jouw CSS*/
+
+.opdracht-1 ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+.opdracht-2 ul {
+    display: flex;
+}
+
+.opdracht-2 li {
+    flex-basis: calc(100% / 3);
+}
+
+.opdracht-3 ul {
+    display: flex;
+    flex-direction: column; /* Zet de items onder elkaar */
+    justify-content: space-between;
+}
+
+.opdracht-3 ul li:nth-child(1) {
+    align-self: flex-start; /* Plaats het eerste item aan de linkerkant */
+}
+
+.opdracht-3 > ul li:nth-child(2) {
+    align-self: center; /* Centreer het tweede item horizontaal */
+}
+
+.opdracht-3 ul li:nth-child(3) {
+    align-self: flex-end; /* Plaats het derde item aan de rechterkant */
+}
+
+.opdracht-4 ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/*.opdracht-5 > div {*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    justify-content: space-between;*/
+/*}*/
+
+/*.opdracht-5 > div > ul {*/
+/*    flex-direction: column;*/
+/*    justify-content: space-between;*/
+/*    align-items: center; !* Standaard uitlijning *!*/
+/*}*/
+
+/*.opdracht-5 > div > ul:nth-of-type(1) {*/
+/*    align-items: flex-start;*/
+/*}*/
+
+/*.opdracht-5 > div > ul:nth-of-type(2) {*/
+/*    align-items: center;*/
+/*}*/
+
+/*.opdracht-5 > div > ul:nth-of-type(3) {*/
+/*    align-items: flex-end;*/
+/*}*/
+
+/* Maak de directe div binnen .opdracht-5 een flex container */
+.opdracht-5 > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* Stel de ul-elementen binnen de div in als flex kolommen */
+.opdracht-5 > div > ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Pas de uitlijning aan voor elke specifieke kolom */
+.opdracht-5 > div > ul:nth-of-type(1) {
+    align-items: flex-start;
+}
+
+.opdracht-5 > div > ul:nth-of-type(2) {
+    align-items: center;
+}
+
+.opdracht-5 > div > ul:nth-of-type(3) {
+    align-items: flex-end;
+}
