@@ -1,1 +1,46 @@
 /*Schrijf hier jouw CSS*/
+/*HTML heeft standaard geen height*/
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    height: 100%;
+
+}
+
+.col-1 {
+    display: flex;
+    flex: 0 1 20%;
+    height: 100%;
+}
+
+.col-2 {
+    flex: 1 auto; /* Zelfde als flex 1 1 auto, want de 2e shrink waarde die je niet ingeeft default naar 1 */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.header-bar {
+
+    flex: 0 1 28.2%;
+
+}
+
+main {
+    flex: 1 auto; /* Zelfde als flex 1 1 auto, want de 2e shrink waarde die je niet ingeeft default naar 1 */
+    display: flex;
+    /*flex-direction: column;*/
+}
+
+article {
+    flex: 1; /* Vul alle beschikbare ruimte op binnen .article-view */
+    overflow: auto; /* Zorg ervoor dat het artikel zelf scrollbaar is indien nodig */
+}
+
+
+.footer-bar {
+    flex: 0 1 7.66%
+}

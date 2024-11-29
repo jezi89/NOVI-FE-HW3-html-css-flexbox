@@ -21,13 +21,13 @@ html, body {
 
 /* Header: altijd ongeveer 14% van de hoogte van de viewport */
 .header-bar {
-    flex: 0 1 13.65%; /* Geen grow, krimpt indiennodig, precies 13.65% van de totale hoogte */
+    flex: 0 1 13.65%; /* Geen grow, krimpt indien nodig, precies 13.65% van de totale hoogte */
 }
 
 /* Main-content in het restant van de viewport aan de hand van aftrekken van de 2x14% van de footer en header..
 Voor de meeste websites en webapps is het verstandig om te testen op minimaal 568 pixels hoogte en dan heb je nog genoeg content om te lezen in dit blok.  */
 .wrapper2 {
-    display: flex; /*Standaard row, no wrap, want we willen dat deze elementen die zich in het midden bevinden altijd naast elkaar staan. */
+    display: flex; /*Standaard row, want we willen dat deze elementen die zich in het midden bevinden altijd naast elkaar staan. */
     flex: 1; /* Vul de resterende ruimte op */
     overflow: hidden; /* Zorg ervoor dat de parent geen scrollbalk heeft. Mooier als alleen de Article (child element) dat heeft. */
 
