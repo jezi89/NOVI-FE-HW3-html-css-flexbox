@@ -1,10 +1,17 @@
-/*Met een liniaal kom ik op een verdeling van header main footer van 135 719 135 in pixels. (Tip: Powertoys liniaal voor windows)*!
+/*Met een liniaal in het plaatje zelf kom ik op een verdeling van header main footer van 135 719 135 in pixels. (Tip: Powertoys liniaal voor windows)*!
 In theorie komt dat neer op ongeveer 14/100 72/100 en 14/100.
-Je zou verwachten dat we uit kunnen gaan van een plaatje gebaseerd op een standaard viewport hoogte van 1080 pixels in plaats van 1099, maargoed.
+In de markdown file kom ik op 115/800/115.
+Je zou verwachten dat we uit kunnen gaan van een plaatje gebaseerd op een standaard viewport hoogte van iets van 1080 pixels in plaats van 1099 of 1030, maargoed.
 (Je zal maar een opdrachtgever hebben die een webapp desktop-first en pixel perfect wil voor zijn exotic device...🤨)
-Voor de leuk gaan werken met percentages, 13,65 om precies te zijn.
-Je zou ook met benadering van bijvoorbeeld 1/7 of 1/8 kunnen werken voor de header en footer, middels:
-calc( 100vh / 7); */
+Voor de leuk gaan werken met percentages voor de header en footer; 13,65 om precies te zijn aan de hand van de eerste meting.
+Je zou ook met benadering van bijvoorbeeld 1/7 of 1/8 kunnen werken voor de header en footer, daarbij gebruik makend van:
+( 100% / 7) als je een pagina met veel dynamische content die kan groeien of krimpen en niet helemaal desktop first wil bouwen.
+Of calc( 100vh / 7). Of 14vh wat hetzelfde is als 14/100.
+Natuurlijk zouden we ook flex grow gebruiken voor de header en footer, maar de opdracht verplicht niet om middels flexbox breuken te werken voor:
+ - wrapper2 met "flex: 5 1 auto;"
+ - header en footer met  "flex: 1 1 auto;"
+TLDR: Met de vaste header en footer kiezen we voor consistentie en laten we zien hoe een meer desktop-first benadering eruit zou kunnen zien.
+Onderaan splits ik de voordelen en nadelen van beide opties uit*/
 
 
 /* Standaard instelling voor body en html om 100% hoogte te vullen */
@@ -64,3 +71,48 @@ Voor de meeste websites en webapps is het verstandig om te testen op minimaal 56
 .footer-bar {
     flex: 0 1 13.65%; /* 13.65% van de totale hoogte */
 }
+
+/*
+
+Het is zeker mogelijk om de basis van de `header`, `footer`, en `main` in je layout flexibel te maken door gebruik te maken van `flex-grow`, zonder dat je vooraf percentages vastlegt. Hieronder ga ik in op de voor- en nadelen van beide benaderingen en in welke situaties je welke aanpak zou kiezen.
+
+### **Optie 1: `flex-grow` Benadering**
+                Je idee is om de `header` en `footer` een `flex-grow` waarde van 1 te geven, en de `main-content` (`wrapper2`) een `flex-grow` waarde van 5. In dit geval zouden de header en footer dus elk één eenheid krijgen van de beschikbare ruimte, en `main-content` zou vijf eenheden krijgen. Dit betekent dat de ruimteverdeling dynamisch blijft op basis van de totale beschikbare hoogte van de viewport. De voordelen hiervan zijn:
+
+#### Voordelen:
+1. **Volledige Flexibiliteit**: Het hele ontwerp past zich automatisch aan aan de hoogte van de viewport, waarbij de componenten groeien op basis van hun ingestelde verhouding (`header` en `footer` nemen elk 1/7, terwijl `main-content` 5/7 inneemt).
+2. **Eenvoudige Code**: Dit leidt tot minder complexe code, omdat je de exacte hoogte van `header` en `footer` niet hoeft te berekenen. `flex-grow` zorgt er automatisch voor dat de elementen proportioneel groeien.
+3. **Goed Geschikt voor Dynamische Inhoud**: Als de hoogte van de viewport verandert (bijvoorbeeld door het aanpassen van de browsergrootte), blijven de verhoudingen consistent. Dit is vooral nuttig op apparaten met wisselende resoluties of schermformaten.
+
+#### Nadelen:
+1. **Minder Controle Over Layout**: Als er specifieke eisen zijn voor de hoogte van `header` en `footer`, kan `flex-grow` mogelijk niet aan die eisen voldoen. Dit komt omdat de exacte hoogte dan afhankelijk wordt van de beschikbare ruimte en relatief is. Voor een "pixel-perfect" design kan deze benadering lastig zijn, omdat de hoogte niet vooraf vaststaat.
+2. **Mogelijke Slechte Leesbaarheid**: Als de `header` of `footer` te veel groeien, kan dit ertoe leiden dat er onnodig veel ruimte ontstaat die eigenlijk niet nodig is voor die elementen, wat de visuele balans van je pagina kan verstoren.
+
+### **Optie 2: Vaste Verdeling met `flex-basis` (`flex: 0 1 13.65%` of `calc(100% / 7)`)**
+                                                                                        De tweede benadering is het vastzetten van de `header` en `footer` op een bepaald percentage van de hoogte van de viewport, zoals je hebt gedaan met `flex: 0 1 13.65%`. Dit zorgt ervoor dat `header` en `footer` een consistente hoogte behouden, onafhankelijk van de viewport-hoogte.
+
+#### Voordelen:
+1. **Meer Controle Over de Layout**: Deze benadering geeft meer controle over hoe je componenten zich gedragen, ongeacht de hoogte van de viewport. Dit kan handig zijn als je wilt dat de `header` en `footer` altijd een specifieke hoogte hebben, bijvoorbeeld voor branding, logo's of consistente navigatie-elementen.
+2. **Visuele Consistentie**: Je kunt ervoor zorgen dat `header` en `footer` altijd een consistente hoogte hebben, ongeacht de viewport-grootte. Dit helpt om het ontwerp stabiel en betrouwbaar te houden, vooral als je werkt met een "desktop-first" benadering en je wilt dat de elementen visueel stabiel blijven.
+
+#### Nadelen:
+1. **Minder Flexibiliteit**: Door vaste hoogtes te gebruiken, kan je layout minder flexibel reageren op verschillende schermgroottes. Dit betekent dat op kleinere schermen `header` en `footer` mogelijk te veel ruimte innemen, waardoor er minder ruimte overblijft voor `main-content`.
+2. **Vaste Hoogte kan Tot Problemen Leiden bij Kleinere Schermen**: Als de viewport-hoogte te klein is, kan dit ertoe leiden dat er te weinig ruimte is voor de `main-content`, wat een slechte gebruikerservaring kan geven.
+
+### **In Welke Situaties Kies je Welke Benadering?**
+- **Flex-Grow Benadering**:
+- Kies deze benadering als je de layout volledig dynamisch wilt laten reageren op de beschikbare ruimte, en als de inhoud in `header` en `footer` flexibel is en mag meegroeien.
+- Ideaal voor toepassingen waar de inhoud varieert of waarin je werkt met schermen van verschillende formaten en je wilt dat de verhoudingen consistent blijven, maar de exacte afmetingen niet zo belangrijk zijn.
+- Geschikt voor responsieve webapps die geen "pixel-perfect" ontwerp vereisen en waarbij de lay-out intuïtief meebeweegt met de viewport-grootte.
+
+- **Vaste Verdeling met `flex-basis`**:
+- Kies deze benadering als je visuele consistentie nodig hebt en de `header` en `footer` altijd een specifieke hoogte moeten hebben, ongeacht de viewport. Dit is bijvoorbeeld belangrijk voor bedrijfswebsites waar branding van groot belang is en waar consistentie boven flexibiliteit gaat.
+- Goed voor "pixel-perfect" ontwerpen die voldoen aan de eisen van klanten die precieze controle willen over de lay-out en die willen dat hun applicatie er overal hetzelfde uitziet.
+- Deze benadering is vooral nuttig als je met een opdrachtgever werkt die erg gefocust is op hoe de pagina eruitziet op specifieke apparaten, zonder al te veel te willen afwijken in hoogteverdelingen.
+
+### Conclusie
+    Het gebruik van `flex-grow` is erg handig als je flexibiliteit belangrijk vindt en als je de layout dynamisch wilt maken op basis van beschikbare ruimte. Dit geeft je een "verhouding-gebaseerde" benadering die op veel schermformaten goed werkt.
+
+                                                                                                                                                                                                       Als je echter consistente, voorspelbare lay-outs wilt die een vaste hoogte behouden ongeacht de viewport, dan is het vastzetten met `flex-basis` (`13.65%`) een betere keuze. Het hangt dus af van de vereisten van de opdrachtgever en de context van je project.
+
+                                                                                                                                                                                                                                                                                                                                                                   Mocht je nog verder willen overleggen over een specifieke toepassing of als je tegen bepaalde problemen aanloopt bij het implementeren, laat het me dan weten! We kunnen ook dieper ingaan op hoe je bijvoorbeeld media queries kunt combineren met deze benaderingen voor nog betere responsiviteit.*/
