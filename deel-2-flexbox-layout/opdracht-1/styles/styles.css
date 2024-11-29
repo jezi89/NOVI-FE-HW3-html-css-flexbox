@@ -1,1 +1,66 @@
-/*Schrijf hier jouw CSS*/
+/*Met een liniaal kom ik op een verdeling van header main footer van 135 719 135 in pixels. (Tip: Powertoys liniaal voor windows)*!
+In theorie komt dat neer op ongeveer 14/100 72/100 en 14/100.
+Je zou verwachten dat we uit kunnen gaan van een plaatje gebaseerd op een standaard viewport hoogte van 1080 pixels in plaats van 1099, maargoed.
+(Je zal maar een opdrachtgever hebben die een webapp desktop-first en pixel perfect wil voor zijn exotic device...🤨)
+Voor de leuk gaan werken met percentages, 13,65 om precies te zijn.
+Je zou ook met benadering van bijvoorbeeld 1/7 of 1/8 kunnen werken voor de header en footer, middels:
+calc( 100vh / 7); */
+
+
+/* Standaard instelling voor body en html om 100% hoogte te vullen */
+html, body {
+    height: 100%;
+}
+
+/* Container voor de gehele pagina */
+.wrapper1 {
+    display: flex;
+    flex-direction: column; /* Verticaal gestapeld: header, main-content, footer */
+    height: 100vh; /* Zorg ervoor dat de container de gehele viewport-hoogte inneemt */
+}
+
+/* Header: altijd ongeveer 14% van de hoogte van de viewport */
+.header-bar {
+    flex: 0 1 13.65%; /* Geen grow, krimpt indiennodig, precies 13.65% van de totale hoogte */
+}
+
+/* Main-content in het restant van de viewport aan de hand van aftrekken van de 2x14% van de footer en header..
+Voor de meeste websites en webapps is het verstandig om te testen op minimaal 568 pixels hoogte en dan heb je nog genoeg content om te lezen in dit blok.  */
+.wrapper2 {
+    display: flex; /*Standaard row, no wrap, want we willen dat deze elementen die zich in het midden bevinden altijd naast elkaar staan. */
+    flex: 1; /* Vul de resterende ruimte op */
+    overflow: hidden; /* Zorg ervoor dat de parent geen scrollbalk heeft. Mooier als alleen de Article (child element) dat heeft. */
+
+}
+
+/* Artikel (content) vult zoveel mogelijk ruimte */
+.content-block {
+    flex: 3; /* Neemt het grootste deel van de ruimte in, 3 x zoveel als aside of nav */
+    overflow: auto;
+    /* Maak het artikel scrollbaar als de inhoud te groot is. Dit gebeurd al als de viewport kleiner wordt dan 1080px,
+       maar dat is voor deze opdracht en deze excacte hoeveelheid dummy tekst prima. */
+}
+
+/* Aside en Nav zijn kleiner, maar vullen de rest van de ruimte */
+.aside-column, .nav-column {
+    flex: 1; /* Beide nemen minder (1/5) ruimte in dan het artikel */
+
+}
+
+/* Zorg voor volgorde binnen de main-content */
+.content-block {
+    order: 1;
+}
+
+.nav-column {
+    order: 3;
+}
+
+.aside-column {
+    order: 2; /*Zoals in voorbeeld moet de aside voor de nav komen */
+}
+
+/* Footer: altijd 13.65 van de hoogte van de viewport */
+.footer-bar {
+    flex: 0 1 13.65%; /* 13.65% van de totale hoogte */
+}
