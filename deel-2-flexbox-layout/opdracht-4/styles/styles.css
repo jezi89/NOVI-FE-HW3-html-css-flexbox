@@ -1,43 +1,47 @@
 html, body {
     height: 100vh;
-
 }
 
 body {
     display: flex;
 }
 
-nav {
-    flex: 0 0 20%; /* Vast 20% van de breedte voor de nav */
+.col-1 {
     display: flex;
+    flex: 0 0 20%;
     flex-direction: column;
 }
 
-/* Content sectie */
 .col-2 {
-    flex: 1; /* Zelfde als flex 1 1 auto, want de 2e shrink waarde die je niet ingeeft default naar 1 en auto is ook default*/
+    flex: 1; /* Zelfde als flex 1 1 auto, want de 2e shrink waarde die je niet ingeeft default naar 1 */
     display: flex;
-    flex-direction: column;
+    flex-flow: column;
+
 }
 
-header, footer {
-    flex: 0 0 calc(2 * 100vh / 11); /* Vast gedeelte voor de header */
-    display: flex;
-}
 
 main {
-    flex: 1; /* Hier de row die article en aside huisvest */
     display: flex;
-    /*flex-flow: column wrap*/
+    min-height: calc(7 * 100vh / 11);
 }
 
 article {
-    flex: 3; /* 3/4 ruimte voor artikel */
+    width: 75%
 }
 
+
 aside {
-    flex: 1; /* 1/4 ruimte voor aside */
+    width: 25%;
+    flex: 0 0 25%;
+    height: calc(9 * 100vh / 11);
+}
+
+
+header, footer {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex: 0 0 calc(2 * 100vh / 11);
+}
+
+footer {
+    max-width: 75%;
 }
