@@ -1,1 +1,49 @@
-/*Schrijf hier jouw CSS*/
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    align-items: stretch;
+    flex-flow: column;
+}
+
+main {
+
+    display: flex;
+    flex: 1 1 auto;
+    align-items: stretch;
+
+}
+
+article {
+    display: flex;
+    flex: 1 1 auto;
+    order: 2;
+}
+
+nav {
+    display: flex;
+    flex: 0 0 20%;
+    order: 1;
+}
+
+aside {
+    display: flex;
+    flex: 0 0 20%;
+    order: 3;
+}
+
+
+header {
+    display: flex;
+    flex: 0 0 18.2%;
+}
+
+footer {
+    display: flex;
+
+    flex: 0 0 18.2%;
+}
+
+
