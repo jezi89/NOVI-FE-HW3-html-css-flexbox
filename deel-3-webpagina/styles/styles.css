@@ -1,1 +1,136 @@
-/*Schrijf hier jouw css*/
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Inconsolata:wght@200..900&family=Poppins:wght@400;600;800&display=swap');
+
+html, body {
+    min-height: 100vh;
+    height: 100%;
+    margin: 0; /* Voeg dit toe */
+    padding: 0; /* Voeg dit toe */
+}
+
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+html {
+    font-family: "Poppins", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.title {
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    margin: 0;
+    font-family: "Poppins", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 1.25em;
+    line-height: 0.5;
+    text-align: center;
+}
+
+h3 {
+    font-family: "Poppins", serif;
+    font-weight: 600;
+    font-size: 0.97em;
+    font-style: normal;
+    text-align: justify;
+    text-align-last: center;
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-style: normal;
+    background-color: #F2F3D9;
+
+}
+
+
+header {
+    width: 100%;
+    display: flex;
+
+}
+
+.navbar {
+    display: flex;
+    align-items: center; /* Verticaal centreren */
+    justify-content: space-between; /* Ruimte tussen h2 en nav */
+    padding: 0 3em; /* Optioneel: padding aanpassen */
+    background-color: #030027;
+    width: 100%;
+}
+
+.navbar ul {
+    display: flex;
+    gap: 5em;
+
+}
+
+
+.navbar ul li {
+    list-style-type: none;
+
+}
+
+.navbar a, .navbar h2 {
+    color: #F2F3D9;
+    text-decoration: none;
+}
+
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Horizontaal centreren */
+    align-items: center; /* Verticaal centreren */
+    flex: 1 1 auto;
+    padding: 4rem; /* Zorg ervoor dat er ruimte is tussen de header en de inhoud */
+
+}
+
+
+.section-wrapper {
+    display: flex;
+    height: 350px;
+    gap: 3rem;
+    /*margin: 0 5%;*/
+    width: 100%; /* Zorg ervoor dat de section-wrapper de volledige breedte inneemt */
+}
+
+.inner-content {
+    max-width: calc(280px * 3 + 3rem * 2);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.infosection {
+    flex: 1 1 280px; /* Zorgt ervoor dat de secties een standaard breedte van 280px hebben, maar krimpen als nodig */
+    display: flex;
+    background-color: #c16e70;
+    text-align: center;
+    border-radius: 1%;
+    align-items: flex-end;
+    padding: 0 0.5em;
+    text-wrap: pretty
+}
+
+.infosection p {
+    max-height: 100%; /* Zorg ervoor dat de paragraaf niet groter wordt dan het beschikbare blok */
+    overflow: auto; /* Voeg overflow toe aan de paragraaf zelf voor een betere controle */
+    scrollbar-width: thin;
+}
+
+
+
+

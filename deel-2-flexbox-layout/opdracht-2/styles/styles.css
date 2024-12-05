@@ -1,1 +1,63 @@
-/*Schrijf hier jouw CSS*/
+
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    min-height: 100%;
+}
+
+.col-1 {
+    display: flex;
+    flex: 0 0 20%;
+    flex-direction: column;
+}
+
+.col-2 {
+    flex: 1 1 auto; /* Verander flex-shrink van 0 naar 1 */
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    min-height: 0;
+    /* TLDR: Het toevoegen van 'min-height: 0;' aan '.col-2' is cruciaal voor de correcte werking van flexbox.
+   Het zorgt ervoor dat '.col-2' kan krimpen onder de hoogte van zijn inhoud, waardoor er geen ongewenste witte ruimtes of overlappende elementen ontstaan.
+   Zonder 'min-height: 0;' kan de flexbox-layout zich niet aanpassen aan kleinere schermen of inhoud die groter is dan de beschikbare ruimte.
+   Zie meer info in de lange comment onderaan. */
+    overflow: hidden;
+}
+
+
+header, footer {
+    flex: 0 0 calc(2 * 100vh / 11); /* Stelt een vaste hoogte in voor header en footer */
+}
+
+
+main {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 0; /* Maakt krimpen mogelijk binnen de beschikbare ruimte */
+}
+
+
+article {
+    flex: 1 1 auto;
+    overflow: auto; /* Maakt scrollen binnen het artikel mogelijk */
+}
+
+/* Meer informatie over 'min-height: 0;':
+
+Het toevoegen van 'min-height: 0;' aan '.col-2' is essentieel om ervoor te zorgen dat je flexbox-layout zich gedraagt zoals verwacht. Het stelt het element in staat om te krimpen onder de hoogte van zijn inhoud, waardoor de beschikbare ruimte optimaal wordt benut en er geen ongewenste overloop of witte ruimtes ontstaan.
+
+In flexbox-layouts kan het voorkomen dat flex-items niet krimpen zoals je verwacht, zelfs als je 'flex-shrink' correct hebt ingesteld. Dit komt door de standaardwaarde 'min-height: auto;', waardoor het element minimaal de hoogte van zijn inhoud aanneemt en niet verder kan krimpen. Door 'min-height: 0;' toe te voegen, geef je de browser toestemming om het element te laten krimpen tot nul hoogte als dat nodig is.
+
+Dit is vooral belangrijk in geneste flexbox-containers, zoals in jouw layout, waar '.col-2' zowel een flex-item als een flex-container is. Zonder 'min-height: 0;' kunnen er problemen ontstaan bij het verkleinen van het scherm of bij lange inhoud, omdat de elementen niet kunnen krimpen en er overloop optreedt.
+
+Door 'min-height: 0;' te gebruiken, zorg je ervoor dat:
+
+'.col-2' kan krimpen onder de hoogte van zijn inhoud.
+Het flexbox-algoritme de ruimte correct kan herverdelen volgens de 'flex'-eigenschappen.
+Overloop en ongewenste witte ruimtes worden voorkomen.
+Je layout flexibel en responsief blijft, conform de randvoorwaarden van je opdracht.
+Kort samengevat is 'min-height: 0;' een kleine maar cruciale instelling die ervoor zorgt dat je flexbox-layout zich correct gedraagt, vooral in situaties met geneste flexbox-containers en variabele inhoud. */

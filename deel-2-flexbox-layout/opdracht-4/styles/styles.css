@@ -1,1 +1,87 @@
-/*Schrijf hier jouw CSS*/
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    align-items: stretch;
+}
+
+
+.outer-col-1 {
+    display: flex;
+    flex: 0 0 20%;
+}
+
+.outer-col-2 {
+    flex: 1 0 auto;
+    /* Zelfde als flex 1 1 auto, want de 2e shrink waarde die je niet ingeeft default naar 1 */
+    display: flex;
+    flex-flow: column;
+    align-items: stretch;
+}
+
+.inner-row {
+    display: flex;
+    flex: 1 1 auto;
+    align-items: stretch;
+}
+
+.inner-col {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+
+}
+
+article {
+    flex: 1 0 auto;
+    display: flex;
+}
+
+header {
+    display: flex;
+    flex: 0 0 18.2%;
+}
+
+footer {
+    display: flex;
+    flex: 0 0 18.2%;
+}
+
+aside {
+    display: flex;
+    flex: 0 0 20%;
+}
+
+/*footer {*/
+/*    display: flex;*/
+/*    flex: 0 0 18.2%;*/
+/*}*/
+
+
+/*main {*/
+/*    display: flex;*/
+/*    min-height: calc(7 * 100vh / 11);*/
+/*}*/
+
+/*article {*/
+/*    width: 75%*/
+/*}*/
+
+
+/*aside {*/
+/*    width: 25%;*/
+/*    flex: 0 0 25%;*/
+/*    height: calc(9 * 100vh / 11);*/
+/*}*/
+
+
+/*header, footer {*/
+/*    display: flex;*/
+/*    flex: 0 0 calc(2 * 100vh / 11);*/
+/*}*/
+
+/*footer {*/
+/*    max-width: 75%;*/
+/*}*/
