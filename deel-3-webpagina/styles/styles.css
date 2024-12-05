@@ -1,15 +1,42 @@
-@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Inconsolata:wght@200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Inconsolata:wght@200..900&family=Poppins:wght@400;600;800&display=swap');
 
 *, *::before, *::after {
     box-sizing: border-box;
+    font-size: 14px;
 }
 
-h1, h3 {
+html {
+    font-family: "Poppins", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.title {
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    margin: 0;
+    font-family: "Poppins", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 1.25em;
+    line-height: 0.5;
     text-align: center;
 }
 
 h3 {
+    font-family: "Poppins", serif;
+    font-weight: 600;
+    font-size: 0.97em;
+    font-style: normal;
+    text-align: justify;
+    text-align-last: center;
 }
+
 
 html, body {
     height: 100%;
@@ -19,13 +46,8 @@ body {
     display: flex;
     justify-content: center; /* Horizontaal centreren */
     align-items: center; /* Verticaal centreren */
-    min-height: 100vh; /* Minimum hoogte van de volledige viewport */
-    font-family: "Inconsolata", monospace;
-    font-optical-sizing: auto;
-    font-weight: <weight>;
     font-style: normal;
-    font-variation-settings:
-            "wdth" 100;
+
     background-color: #F2F3D9;
 }
 
@@ -38,15 +60,9 @@ body {
     flex: 1 1 auto;
 }
 
-header {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 2rem;
-}
 
 .section-wrapper {
     display: flex;
-    justify-content: center;
     height: 350px;
     gap: 3rem;
     /*margin: 0 5%;*/
@@ -57,7 +73,6 @@ header {
     max-width: calc(280px * 3 + 3rem * 2);
     display: flex;
     flex-direction: column;
-    align-items: center;
     width: 100%;
 }
 
@@ -66,12 +81,10 @@ header {
     display: flex;
     background-color: #c16e70;
     text-align: center;
-    border-radius: 2%;
+    border-radius: 1%;
     align-items: flex-end;
-    padding: 1rem; /* Meer ademruimte voor content */
-    overflow: hidden; /* Verberg standaard de scrollbar */
-    position: relative; /* Zorgt ervoor dat de hover-effecten netjes werken */
-
+    padding: 0 0.5em;
+    text-wrap: pretty
 }
 
 .infosection p {
