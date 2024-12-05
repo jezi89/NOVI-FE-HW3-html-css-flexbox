@@ -1,1 +1,85 @@
-/*Schrijf hier jouw css*/
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Inconsolata:wght@200..900&display=swap');
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+h1, h3 {
+    text-align: center;
+}
+
+h3 {
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center; /* Horizontaal centreren */
+    align-items: center; /* Verticaal centreren */
+    min-height: 100vh; /* Minimum hoogte van de volledige viewport */
+    font-family: "Inconsolata", monospace;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+    font-variation-settings:
+            "wdth" 100;
+    background-color: #F2F3D9;
+}
+
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Dit zorgt ervoor dat de content binnen de wrapper wordt gecentreerd */
+    flex: 1 1 auto;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+}
+
+.section-wrapper {
+    display: flex;
+    justify-content: center;
+    height: 350px;
+    gap: 3rem;
+    /*margin: 0 5%;*/
+    width: 100%; /* Zorg ervoor dat de section-wrapper de volledige breedte inneemt */
+}
+
+.inner-content {
+    max-width: calc(280px * 3 + 3rem * 2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.infosection {
+    flex: 1 1 280px; /* Zorgt ervoor dat de secties een standaard breedte van 280px hebben, maar krimpen als nodig */
+    display: flex;
+    background-color: #c16e70;
+    text-align: center;
+    border-radius: 2%;
+    align-items: flex-end;
+    padding: 1rem; /* Meer ademruimte voor content */
+    overflow: hidden; /* Verberg standaard de scrollbar */
+    position: relative; /* Zorgt ervoor dat de hover-effecten netjes werken */
+
+}
+
+.infosection p {
+    max-height: 100%; /* Zorg ervoor dat de paragraaf niet groter wordt dan het beschikbare blok */
+    overflow: auto; /* Voeg overflow toe aan de paragraaf zelf voor een betere controle */
+    scrollbar-width: thin;
+}
+
+
+
+
