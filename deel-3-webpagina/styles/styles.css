@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Inconsolata:wght@200..900&family=Poppins:wght@400;600;800&display=swap');
 
+html, body {
+    min-height: 100vh;
+    height: 100%;
+    margin: 0; /* Voeg dit toe */
+    padding: 0; /* Voeg dit toe */
+}
+
+
 *, *::before, *::after {
     box-sizing: border-box;
     font-size: 14px;
@@ -38,26 +46,56 @@ h3 {
 }
 
 
-html, body {
-    height: 100%;
-}
-
 body {
     display: flex;
-    justify-content: center; /* Horizontaal centreren */
-    align-items: center; /* Verticaal centreren */
+    flex-direction: column;
     font-style: normal;
-
     background-color: #F2F3D9;
+
+}
+
+
+header {
+    width: 100%;
+    display: flex;
+
+}
+
+.navbar {
+    display: flex;
+    align-items: center; /* Verticaal centreren */
+    justify-content: space-between; /* Ruimte tussen h2 en nav */
+    padding: 0 3em; /* Optioneel: padding aanpassen */
+    background-color: #030027;
+    width: 100%;
+}
+
+.navbar ul {
+    display: flex;
+    gap: 5em;
+
+}
+
+
+.navbar ul li {
+    list-style-type: none;
+
+}
+
+.navbar a, .navbar h2 {
+    color: #F2F3D9;
+    text-decoration: none;
 }
 
 
 .content-wrapper {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center; /* Dit zorgt ervoor dat de content binnen de wrapper wordt gecentreerd */
+    justify-content: center; /* Horizontaal centreren */
+    align-items: center; /* Verticaal centreren */
     flex: 1 1 auto;
+    padding: 4rem; /* Zorg ervoor dat er ruimte is tussen de header en de inhoud */
+
 }
 
 
